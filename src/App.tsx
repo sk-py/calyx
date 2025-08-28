@@ -1,22 +1,22 @@
-import { 
-  createBrowserRouter, 
-  Outlet, 
-  RouterProvider, 
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
   useLocation,
   useNavigationState,
-  useNavigation
-} from "react-router-dom"; 
-import { 
-  About, 
-  CarDetails, 
-  Contact, 
-  Home, 
-  ProductDetails, 
-  SearchPage, 
-} from "./pages/pageIndex"; 
-import { useEffect, useRef, useState } from "react"; 
-import Navbar from "./components/Navbar"; 
-import Footer from "./components/Footer"; 
+  useNavigation,
+} from "react-router-dom";
+import {
+  About,
+  CarDetails,
+  Contact,
+  Home,
+  ProductDetails,
+  SearchPage,
+} from "./pages/pageIndex";
+import { useEffect, useRef, useState } from "react";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Lenis from "@studio-freight/lenis";
 import Preloader from "./components/Preloader"; // Import your Preloader
 
@@ -52,7 +52,7 @@ function App() {
     // Scroll to top on route change and handle initial load
     useEffect(() => {
       window.scrollTo(0, 0);
-      
+
       if (isInitialLoad) {
         const timer = setTimeout(() => {
           setIsInitialLoad(false);
@@ -66,10 +66,15 @@ function App() {
 
     return (
       <>
-        {showPreloader && <Preloader />}
-        <Navbar />
-        <Outlet />
-        <Footer />
+        {showPreloader ? (
+          <Preloader />
+        ) : (
+          <>
+            <Navbar />
+            <Outlet />
+            <Footer />
+          </>
+        )}
       </>
     );
   };
@@ -97,8 +102,8 @@ function App() {
         },
         {
           path: "/search/:productid",
-          element: <ProductDetails />
-        }
+          element: <ProductDetails />,
+        },
       ],
     },
   ]);

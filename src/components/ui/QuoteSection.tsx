@@ -105,12 +105,12 @@ export default function Component() {
       ref={containerRef} // Assign the container ref
       className={` flex flex-col font-[Doren] items-center justify-center min-h-screen py-20 bg-gradient-to-br from-gray-950 to-black text-white p-4`}
     >
-      <div className="max-w-5xl mx-auto text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-normal">
-        <p ref={addTextRef(0)} className="mb-4">
-          {'“ At Calyx Perfumes, we don’t just'}
+      <div className="max-w-6xl mx-auto text-4xl text-center uppercase sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-normal">
+        <p ref={addTextRef(0)} className="mb-4 ">
+          {'“ We don’t just craft fragrances, we'}
         </p>
         <p ref={addTextRef(1)} className="mb-4 flex items-center justify-center flex-wrap">
-          {"craft fragrances, We believe a"}
+          {"believe a perfume is a time capsule"}
           {/* <span ref={addImageRef(0)} className="inline-block mx-2 overflow-hidden rounded-lg shadow-lg">
             <img
               src="https://images.unsplash.com/photo-1588514912908-8f5891714f8d?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -122,7 +122,7 @@ export default function Component() {
           </span> */}
         </p>
         <p ref={addTextRef(2)} className="mb-4">
-          {"perfume is a time capsule of the soul"}
+          {"of the soul—holding laughter, love,"}
         </p>
         <p ref={addTextRef(3)} className="mb-4 flex items-center justify-center flex-wrap">
           {/* <span ref={addImageRef(1)} className="inline-block mx-2 overflow-hidden rounded-lg shadow-lg">
@@ -134,7 +134,7 @@ export default function Component() {
               className="object-cover h-[60px] w-[150px]"
             />
           </span> */}
-          {"— holding laughter, love, and fleeting"}
+          {"and fleeting moments within. Calyx"}
         </p>
         <p ref={addTextRef(4)} className="mb-4 flex items-center justify-center flex-wrap">
           {/* <span ref={addImageRef(2)} className="inline-block mx-2 overflow-hidden rounded-lg shadow-lg">
@@ -155,10 +155,10 @@ export default function Component() {
               className="object-cover h-[60px] w-[100px]"
             />
           </span> */}
-          {/* {" REMAIN"} */}
+          {"Perfumes creates fragrances that"}
         </p>
         <p ref={addTextRef(5)} className="mb-4 flex items-center justify-center flex-wrap">
-          {"moments within. Calyx Perfumes"}
+          {"lives in memory, long after"}
           {/* <span ref={addImageRef(4)} className="inline-block mx-2 overflow-hidden rounded-lg shadow-lg">
             <img
               src="https://images.unsplash.com/photo-1718466044521-d38654f3ba0a?q=80&w=773&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -179,11 +179,11 @@ export default function Component() {
               className="object-cover h-[60px] w-[220px]"
             />
           </span> */}
-          {'creates fragrances that live in '}
+          {'the scent fades.”'}
         </p>
-        <p ref={addTextRef(7)} className="mb-4 flex items-center justify-center flex-wrap">
-          {'memory, long after the scent fades.”'}
-        </p>
+        {/* <p ref={addTextRef(7)} className="mb-4 flex items-center justify-center flex-wrap">
+          {''}
+        </p> */}
       </div>
       <p ref={authorRef} className={` mt-12 text-xl md:text-2xl italic text-gray-300`}>
         - Team Calyx

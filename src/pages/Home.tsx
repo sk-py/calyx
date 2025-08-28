@@ -9,6 +9,7 @@ import ImageFrames from "@/components/ui/ShowCase";
 import GiftSection from "@/components/ui/GiftSection";
 import CardStack from "@/components/ui/CardStack";
 import HeroAbout from "@/components/ui/HeroAbout";
+import SubHeading from "@/components/SubHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,9 +18,12 @@ const Home: React.FC = () => {
     <div className="home">
       <div className="home_box">
         <Main2 />
+        <SubHeading />
         <CardStack/>
-        <QuoteSection/>
+        <QuoteSection />
+        <div className="h-[500vh] overflow-hidden">
         <GiftSection/>
+        </div>
         {/* <HeroAbout/> */}
         <NewProducts />
         {/* <ImageFrames/> */}

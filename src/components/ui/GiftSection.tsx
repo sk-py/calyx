@@ -122,7 +122,7 @@ export default function ScrollGiftSections() {
     >
       {/* Fixed content container */}
       <div className="sticky top-0 w-full h-screen flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-stretch justify-center pt-16 w-full mx-auto h-full">
+        <div className="flex flex-col md:flex-row items-stretch justify-center w-full mx-auto h-full">
           {/* Left Text Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 mb-12 md:mb-0 md:pr-12 relative justify-center">
             {contentSections.map((section, index) => (
@@ -151,7 +151,7 @@ export default function ScrollGiftSections() {
                 </p>
 
                 {index === 0 && (
-                  <button className="px-8 z-10 py-3 border border-white text-white text-sm cursor-pointer uppercase tracking-wider hover:bg-white hover:text-white transition-colors w-fit">
+                  <button className="px-8 z-10 py-3 border duration-300 hover:text-black border-white text-white text-sm cursor-pointer uppercase tracking-wider hover:bg-white transition-colors w-fit">
                     Discover
                   </button>
                 )}
