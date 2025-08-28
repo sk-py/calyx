@@ -125,9 +125,9 @@ const ProductDetails = () => {
             <p className="text-gray-700 mb-3">
               Inspired by <strong>{product.inspired_by}</strong>
             </p>
-            <p className="text-gray-600 text-sm mb-4">
+            {/* <p className="text-gray-600 text-sm mb-4">
               (Retail price ₹{Math.floor(product.price_inr * 1.5)})
-            </p>
+            </p> */}
 
             {/* Scent intensity */}
             <div className="mb-4">
@@ -181,12 +181,10 @@ const ProductDetails = () => {
                   </div>
                 </button>
                 <button
+                  disabled
+                  title="Coming Soon!"
                   onClick={() => setSelectedSize("100ML")}
-                  className={`px-6 py-3 rounded-full border-2 transition-all ${
-                    selectedSize === "100ML"
-                      ? "border-red-500 bg-red-50 text-red-600"
-                      : "border-gray-300 text-gray-700 hover:border-gray-400"
-                  }`}
+                  className={`px-6 py-3 rounded-full border-2 transition-all cursor-not-allowed `}
                 >
                   <div className="flex items-center gap-2">
                     <div className={`w-3 h-3 rounded-full ${

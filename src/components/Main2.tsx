@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Spotlight } from "./ui/spotlight";
 
 function Main2() {
   const containerVariants = {
@@ -85,16 +86,16 @@ function Main2() {
 
   return (
     <motion.div
-      className="w-full h-[100vh] flex overflow-hidden bg-[#000] flex-col lg:flex-row"
+      className="w-screen h-[100vh] flex overflow-hidden bg-[#000] flex-col lg:flex-row items-center justify-center"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       {/* Left Half */}
-      <motion.div
+      {/* <motion.div
         className="lefthalf relative flex items-end justify-center bg-[#000] w-full lg:w-[25%] h-full lg:h-full"
         variants={slideInBottom}
-      >
+      > */}
         {/* <div className="divleft w-44 rounded-t-full mb-10">
           <motion.img
             className="h-[30vh] w-full rounded-t-full object-cover"
@@ -123,11 +124,12 @@ function Main2() {
             </motion.h4>
           </motion.div>
         </div> */}
-      </motion.div>
-
+      {/* </motion.div> */}
+  
       {/* Middle Half */}
       <motion.div
-        className="midhalf w-full lg:w-[50%] flex justify-center flex-col items-center px-4 lg:px-0 order-1 lg:order-2"
+        // className="midhalf w-full lg:w-[50%] flex justify-center flex-col items-center px-4 lg:px-0 order-1 lg:order-2"
+        className=" w-full lg:w-full h-full flex justify-center flex-col items-center px-4 lg:px-0 order-1 lg:order-2"
         variants={fadeInUp}
       >
         <motion.h2
@@ -136,33 +138,41 @@ function Main2() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
         >
-          Unveiling Fragrance
-          {/* <br /> */}
-          {/* <motion.span
+          Awaken Your Senses
+          <br />
+          <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
           >
-            with Every Note
-          </motion.span> */}
+            With Every Note
+          </motion.span>
         </motion.h2>
 
         <motion.div
           className="img w-[70%] sm:w-[90%] md:w-[85%] lg:w-[90%] mt-6 lg:mt-10 h-[30vh] lg:h-[60vh] relative"
+          // className=" mt-6 lg:mt-10 relative"
           variants={scaleIn}
         >
+            {/* <Spotlight
+        className="-top-40 absolute z-[999999] left-0 md:-top-20 md:left-60"
+        fill="white"
+      /> */}
+
           {/* Background blend overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-transparent to-[#000000] opacity-40 rounded-lg"></div>
 
           {/* Dark overlay to blend with background */}
           <div className="absolute inset-0 bg-[#000000] opacity-20 rounded-lg mix-blend-multiply"></div>
 
+        
+          
           <motion.img
-            className="h-full w-full object-cover relative z-10 filter brightness-110 contrast-110"
-            src="/assets/images/perfume landing2.png"
-            alt=""
+            className="h-[100%] w-[90%] mx-auto object-contain relative z-10 filter "
+            src="/assets/images/Homepage.png"
+            alt="Villian Perfume Bottle"
             style={{
-              filter: "brightness(1.1) contrast(1.1) saturate(1.8)",
+              filter: "brightness(0.9) contrast(1.1) saturate(2)",
               mixBlendMode: "screen",
             }}
           />
@@ -173,10 +183,10 @@ function Main2() {
       </motion.div>
 
       {/* Right Half */}
-      <motion.div
+      {/* <motion.div
         className="righthalf relative flex items-start justify-center bg-[#000] w-full lg:w-[25%] h-full lg:h-full order-3"
         variants={slideInTop}
-      >
+      > */}
         {/* <div className="divright w-44 h-full mt-32 overflow-hidden">
           
           <motion.div
@@ -208,8 +218,7 @@ function Main2() {
             transition={{ duration: 0.4 }}
           />
         </div> */}
-      </motion.div>
-
+      {/* </motion.div> */}
       <style jsx>{`
         .metal-3d {
           background: linear-gradient(

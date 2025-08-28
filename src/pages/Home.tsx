@@ -20,9 +20,9 @@ const Home: React.FC = () => {
         <CardStack/>
         <QuoteSection/>
         <GiftSection/>
-        <HeroAbout/>
+        {/* <HeroAbout/> */}
         <NewProducts />
-        <ImageFrames/>
+        {/* <ImageFrames/> */}
       </div>
     </div>
   );

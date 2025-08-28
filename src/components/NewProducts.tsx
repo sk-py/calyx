@@ -207,7 +207,7 @@ const NewProducts = () => {
           variants={itemVariants}
         >
           <h2 className="text-2xl md:text-3xl lg:text-5xl font-medium font-[Doren] text-gray-900 tracking-wide">
-            Best Selling Products
+            Meet Our Fragnance Icons
           </h2>
           
           {/* Navigation buttons - Hidden on desktop */}
