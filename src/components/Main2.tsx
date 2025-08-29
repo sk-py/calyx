@@ -125,7 +125,7 @@
 //           </motion.div>
 //         </div> */}
 //       {/* </motion.div> */}
-  
+
 //       {/* Middle Half */}
 //       <motion.div
 //         // className="midhalf w-full lg:w-[50%] flex justify-center flex-col items-center px-4 lg:px-0 order-1 lg:order-2"
@@ -165,8 +165,6 @@
 //           {/* Dark overlay to blend with background */}
 //           <div className="absolute inset-0 bg-[#000000] opacity-20 rounded-lg mix-blend-multiply"></div>
 
-        
-          
 //           <motion.img
 //             className="h-[100%] w-[90%] mx-auto object-contain relative z-10 filter "
 //             src="/assets/images/Homepage.png"
@@ -188,7 +186,7 @@
 //         variants={slideInTop}
 //       > */}
 //         {/* <div className="divright w-44 h-full mt-32 overflow-hidden">
-          
+
 //           <motion.div
 //             className="border rounded-t-full p-6 text-sm text-center border-zinc-800 w-full"
 //             variants={capsuleTextVariants}
@@ -209,7 +207,6 @@
 //             </motion.h4>
 //           </motion.div>
 
-         
 //           <motion.img
 //             className="h-[30vh] w-full mt-2 rounded-b-full object-cover"
 //             src="/assets/images/Villian.png"
@@ -258,23 +255,20 @@
 // }
 
 // export default Main2;
-
-import type React from "react"
-
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
-import { useCallback } from "react"
+import { motion, useMotionValue, useSpring, useTransform, useAnimation } from "framer-motion";
+import { useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 type FullImageHeroProps = {
-  // Headline lines; use your installed display font class (e.g., font-[Doren])
-  headline?: [string, string?]
-  subtext?: string
-  ctaLabel?: string
-  imageSrc?: string
-  className?: string
-}
+  headline?: [string, string?];
+  subtext?: string;
+  ctaLabel?: string;
+  imageSrc?: string;
+  className?: string;
+};
 
 function AnimatedWords({ text }: { text: string }) {
-  const words = text.split(" ")
+  const words = text.split(" ");
   return (
     <span className="inline-block">
       {words.map((w, i) => (
@@ -283,121 +277,181 @@ function AnimatedWords({ text }: { text: string }) {
           className="inline-block mr-2"
           initial={{ y: "1.2em", opacity: 0, rotateX: 25 }}
           animate={{ y: "0em", opacity: 1, rotateX: 0 }}
-          transition={{ duration: 0.7, ease: [0.2, 0.8, 0.2, 1], delay: 0.12 * i }}
+          transition={{
+            duration: 0.7,
+            ease: [0.2, 0.8, 0.2, 1],
+            delay: 0.12 * i,
+          }}
         >
           {w}
         </motion.span>
       ))}
     </span>
-  )
+  );
 }
 
 export default function FullImageHero({
   headline = ["Awaken Your Senses", "With Every Note"],
   subtext = "All Collection",
-  ctaLabel = "Shop Collection",
+  ctaLabel = "Explore More",
   imageSrc = "/assets/images/Web Banner 012.png",
   className,
 }: FullImageHeroProps) {
   // Subtle mouse parallax for the image
-  const mx = useMotionValue(0)
-  const my = useMotionValue(0)
-  const smx = useSpring(mx, { stiffness: 60, damping: 20 })
-  const smy = useSpring(my, { stiffness: 60, damping: 20 })
-  const x = useTransform(smx, [-0.5, 0.5], [-12, 12])
-  const y = useTransform(smy, [-0.5, 0.5], [-8, 8])
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const smx = useSpring(mx, { stiffness: 60, damping: 20 });
+  const smy = useSpring(my, { stiffness: 60, damping: 20 });
+  const x = useTransform(smx, [-0.5, 0.5], [-12, 12]);
+  const y = useTransform(smy, [-0.5, 0.5], [-8, 8]);
+
+  // Arrow animation controls
+  const arrowControls = useAnimation();
 
   const onMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
-      const bounds = (e.currentTarget as HTMLDivElement).getBoundingClientRect()
-      const px = (e.clientX - bounds.left) / bounds.width - 0.5
-      const py = (e.clientY - bounds.top) / bounds.height - 0.5
-      mx.set(px)
-      my.set(py)
+      const bounds = e.currentTarget.getBoundingClientRect();
+      const px = (e.clientX - bounds.left) / bounds.width - 0.5;
+      const py = (e.clientY - bounds.top) / bounds.height - 0.5;
+      mx.set(px);
+      my.set(py);
     },
-    [mx, my],
-  )
+    [mx, my]
+  );
 
   const onMouseLeave = useCallback(() => {
-    mx.set(0)
-    my.set(0)
-  }, [mx, my])
+    mx.set(0);
+    my.set(0);
+  }, [mx, my]);
+
+  // Start arrow animation on mount
+  useEffect(() => {
+    arrowControls.start({
+      x: [-8, 0, -8], // Back-and-forth movement (matches -translate-x-2 to translate-x-0)
+      transition: {
+        repeat: Infinity,
+        duration: 1.5, // Smooth, subtle oscillation
+        ease: "easeInOut",
+      },
+    });
+  }, [arrowControls]);
 
   return (
-    <section
-      className={["relative w-full h-[88vh] md:h-[100vh] mt-16 overflow-hidden", "", className || ""].join(" ")}
-      onMouseMove={onMouseMove}
-      onMouseLeave={onMouseLeave}
-      aria-label="Hero"
-    >
-      {/* Background image with Ken Burns + parallax */}
-      <motion.img
-        src={imageSrc}
-        alt="Fragrance campaign"
-        className="absolute inset-0 h-full w-full object-cover object-right"
-        initial={{ scale: 1.08, opacity: 0.0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.6, ease: [0.2, 0.8, 0.2, 1] }}
-        style={{ x, y }}
-        crossOrigin="anonymous"
-      />
+    <>
+      <section
+        className={`relative w-full h-[88vh] md:h-[100vh] mt-16 overflow-hidden ${className || ""}`}
+        onMouseMove={onMouseMove}
+        onMouseLeave={onMouseLeave}
+        aria-label="Hero"
+      >
+        {/* Background image with Ken Burns + parallax */}
+        <motion.img
+          src={imageSrc}
+          alt="Fragrance campaign"
+          className="absolute inset-0 h-full w-full object-cover object-right"
+          initial={{ scale: 1.08, opacity: 0.0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease: [0.2, 0.8, 0.2, 1] }}
+          style={{ x, y }}
+          crossOrigin="anonymous"
+        />
 
-      {/* Dark-to-transparent overlay to keep left text readable */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+        {/* Dark-to-transparent overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
-      {/* Content */}
-      <div className="relative h-full">
-        <div className="mx-auto h-full max-w-6xl px-6 md:px-8">
-          <div className="flex h-full items-center">
-            <motion.div className="max-w-xl text-left" initial="hidden" animate="visible">
-              {/* Label + divider */}
+        {/* Content */}
+        <div className="relative h-full">
+          <div className="mx-auto h-full max-w-7xl px-6 md:px-8">
+            <div className="flex h-full items-center">
               <motion.div
-                className="mb-4 flex items-center gap-4"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                className="max-w-2xl text-left"
+                initial="hidden"
+                animate="visible"
               >
-                <span className="text-xs tracking-[0.3em] uppercase text-white/90 font-medium">{subtext}</span>
-                <motion.span
-                  className="h-px bg-white/70"
-                  initial={{ width: 0 }}
-                  animate={{ width: 64 }}
-                  transition={{ delay: 0.35, duration: 0.7, ease: "easeOut" }}
-                  aria-hidden="true"
-                />
-              </motion.div>
+                {/* Headline */}
+                <h1 className="text-white font-[Doren] leading-tight text-4xl md:text-6xl lg:text-[6rem] text-pretty drop-shadow-sm">
+                  <AnimatedWords text={headline[0]} />
+                  {headline[1] ? (
+                    <>
+                      <br />
+                      <AnimatedWords text={headline[1]} />
+                    </>
+                  ) : null}
+                </h1>
 
-              {/* Headline */}
-              <h1 className="text-white font-[Doren] leading-tight text-4xl md:text-6xl lg:text-[6rem] text-pretty drop-shadow-sm">
-                <AnimatedWords text={headline[0]} />
-                {headline[1] ? (
-                  <>
-                    <br />
-                    <AnimatedWords text={headline[1]} />
-                  </>
-                ) : null}
-              </h1>
-
-              {/* CTA */}
-              <motion.div
-                className="mt-6 md:mt-8 flex items-center gap-6"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.9, duration: 0.6 }}
-              >
-                <a href="#collection" className="group relative inline-flex items-center gap-3 text-white">
-                  <span className="text-base md:text-lg font-medium">{ctaLabel}</span>
-                  <span className="h-2 w-2 rounded-full bg-amber-400" aria-hidden="true" title="accent" />
-                  <span
-                    className="absolute -bottom-1 left-0 h-[2px] w-0 bg-white/80 transition-all duration-500 group-hover:w-full"
-                    aria-hidden="true"
-                  />
-                </a>
+                {/* CTA */}
+                <motion.div
+                  className="mt-6 md:mt-8 flex items-center gap-6"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.9, duration: 0.6 }}
+                >
+                  <Link
+                    to={"/product"}
+                    className="border-none bg-transparent group cursor-pointer flex items-center justify-center"
+                    aria-label={ctaLabel}
+                    onMouseEnter={() => arrowControls.stop()} // Stop animation on hover
+                    onMouseLeave={() =>
+                      arrowControls.start({
+                        x: [-8, 0, -8],
+                        transition: {
+                          repeat: Infinity,
+                          duration: 1.5,
+                          ease: "easeInOut",
+                        },
+                      })
+                    } // Resume animation on leave
+                  >
+                    <span className="hover-underline-animation pb-2 tracking-[4px] text-lg pr-4 uppercase text-white font-[Doren]">
+                      {ctaLabel}
+                    </span>
+                    <motion.svg
+                      id="arrow-horizontal"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="10"
+                      viewBox="0 0 46 16"
+                      animate={arrowControls}
+                      className="group-hover:translate-x-0 active:scale-90"
+                    >
+                      <path
+                        id="Path_10"
+                        data-name="Path 10"
+                        d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+                        transform="translate(30)"
+                        fill="white"
+                      />
+                    </motion.svg>
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-  )
+
+        {/* CSS for hover-underline-animation */}
+        <style jsx>{`
+          .hover-underline-animation {
+            position: relative;
+          }
+          .hover-underline-animation:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+          }
+          .hover-underline-animation:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+          }
+        `}</style>
+      </section>
+    </>
+  );
 }

@@ -39,16 +39,16 @@ export const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mt-8 lg:mt-0">
             <div className="flex flex-col gap-2">
               <p className="font-semibold text-base sm:text-lg mb-2">Our Best Sellers</p>
-              <Link to="/search/2" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
+              <Link to="/product/2" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 Dior Sauvage Elixir
               </Link>
-              <Link to="/search/1" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
+              <Link to="/product/1" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 Escada Moon Sparkle
               </Link>
-              <Link to="/search/6" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
+              <Link to="/product/6" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 Acqua di Gio
               </Link>
-              <Link to="/search/5" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
+              <Link to="/product/5" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 Calyx Original (Caramel Scent)
               </Link>
             </div>
@@ -60,7 +60,7 @@ export const Footer = () => {
               <Link to="/about" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 About Us
               </Link>
-              <Link to="/search" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
+              <Link to="/product" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">
                 Products
               </Link>
               <Link to="/contact" className="hover:text-white text-white/70 text-sm sm:text-base transition-colors">

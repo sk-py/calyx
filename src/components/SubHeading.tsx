@@ -114,7 +114,7 @@ export default function SubHeading() {
                 Your browser does not support the video tag.
               </video> */}
               <img
-                src="https://m.media-amazon.com/images/I/515BMsZrVzL._SY350_PKmb-play-button-overlay_.jpg"
+                src="/assets/images/video-mock.jpg"
                 className="w-24 h-24 sm:w-48 sm:h-20 object-cover rounded-[20%]"
               />
             </span>

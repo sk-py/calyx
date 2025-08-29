@@ -35,7 +35,7 @@ const CarDetails = () => {
     const totalCars = carData.length;
 
     if (totalCars === 0) {
-      navigate("/search");
+      navigate("/product");
       return;
     }
 
@@ -45,7 +45,7 @@ const CarDetails = () => {
     );
 
     if (currentIndex === -1) {
-      navigate("/search");
+      navigate("/product");
       return;
     }
 
@@ -153,7 +153,7 @@ const CarDetails = () => {
 
   return (
     <div className="p-4 flex gap-2 lg:gap-4 w-full lg:w-[95%] my-0 mx-auto relative">
-      <Link to="/search" className="absolute md:static top-0 left-[2%]">
+      <Link to="/product" className="absolute md:static top-0 left-[2%]">
         <GoArrowLeft className="text-[2rem] md:text-[2.5rem] lg:text-[3.5rem] p-1 md:p-2 lg:p-4 border-[1px] border-solid border-gray-500 rounded-full transition-all ease-in duration-200 cursor-pointer hover:bg-[#fde047] hover:border-none" />
       </Link>
 
@@ -393,7 +393,7 @@ const CarDetails = () => {
                   <GiCarWheel />
                 </Button>
                 <Link
-                  to={`/search/${carDisplayList[1]?.id}/${encodeURIComponent(
+                  to={`/product/${carDisplayList[1]?.id}/${encodeURIComponent(
                     carDisplayList[1]?.carname
                   )}`}
                   className="flex items-center justify-center gap-2"
@@ -414,7 +414,7 @@ const CarDetails = () => {
 
       {/* ----------next---------------- */}
       <Link
-        to={`/search/${carDisplayList[1]?.id}/${encodeURIComponent(
+        to={`/product/${carDisplayList[1]?.id}/${encodeURIComponent(
           carDisplayList[1]?.carname
         )}`}
       >

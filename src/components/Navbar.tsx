@@ -190,7 +190,7 @@
 //             <Link to="/" className={`hover:text-zinc-900 transition-colors duration-300 text-zinc-800`}>
 //               Home
 //             </Link>
-//             <Link to="/search" className={`hover:text-zinc-900 transition-colors duration-300 text-zinc-800`}>
+//             <Link to="/product" className={`hover:text-zinc-900 transition-colors duration-300 text-zinc-800`}>
 //               Products
 //             </Link>
 //             <Link to="/about" className={`hover:text-zinc-900 transition-colors duration-300 text-zinc-800`}>
@@ -252,7 +252,7 @@
 //                         filteredData.map((perfume, index) => (
 //                           <Link
 //                             key={perfume.id}
-//                             to={`/search/${perfume.id}`}
+//                             to={`/product/${perfume.id}`}
 //                             ref={(el) => (itemRefs.current[index] = el)}
 //                             className={`block py-2 px-2 rounded-md border-b border-slate-300 transition-all duration-200 hover:bg-blue-50 ${
 //                               index === focusedIndex ? "bg-blue-100" : ""
@@ -418,7 +418,7 @@
 //                 Home
 //               </Link>
 //               <Link
-//                 to="/search"
+//                 to="/product"
 //                 onClick={() => setMenuOpen(false)}
 //                 className="text-zinc-700 hover:text-zinc-900 py-2 text-base transition-colors duration-300"
 //               >
@@ -497,7 +497,7 @@
 //                       filteredData.map((perfume, index) => (
 //                         <Link
 //                           key={perfume.id}
-//                           to={`/search/${perfume.id}`}
+//                           to={`/product/${perfume.id}`}
 //                           ref={(el) => (itemRefs.current[index] = el)}
 //                           className={`block py-2 px-2 rounded-md border-b border-slate-300 transition-all duration-200 hover:bg-blue-50 ${
 //                             index === focusedIndex ? "bg-blue-100" : ""
@@ -995,7 +995,7 @@ const Navbar: React.FC = () => {
                   filteredData.map((perfume, index) => (
                     <Link
                       key={perfume.id}
-                      to={`/search/${perfume.id}`}
+                      to={`/product/${perfume.id}`}
                       ref={(el) => (itemRefs.current[index] = el)}
                       className={`block py-2 px-2 rounded-md border-b border-slate-200 transition-all duration-200 hover:bg-zinc-50 ${
                         index === focusedIndex ? "bg-zinc-100" : ""
@@ -1075,7 +1075,7 @@ const Navbar: React.FC = () => {
         </button>
         <nav className="flex flex-col justify-between h-full">
           <div className="flex flex-col gap-4">
-            <img src="/assets/images/CALYX-BLACK-LOGO.png" alt="Calyx Logo" className="w-[4rem]" />
+            <img src="/assets/images/CALYX-WHITE-LOGO.png" alt="Calyx Logo" className="w-[4rem] invert" />
             <Link
               to="/"
               onClick={() => setMenuOpen(false)}
@@ -1084,7 +1084,7 @@ const Navbar: React.FC = () => {
               Home
             </Link>
             <Link
-              to="/search"
+              to="/product"
               onClick={() => setMenuOpen(false)}
               className="text-zinc-700 hover:text-zinc-900 py-2 text-base transition-colors"
             >
@@ -1112,7 +1112,7 @@ const Navbar: React.FC = () => {
             <Menu className="h-5 w-5" />
           </button>
           <Link to="/" className="font-serif text-lg tracking-wide">
-            PARFS
+            CALYX
           </Link>
           <div className="flex items-center gap-2">
             <button aria-label="Open search" onClick={() => setDialogOpen(true)} className="p-2">

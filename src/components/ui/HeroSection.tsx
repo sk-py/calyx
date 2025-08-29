@@ -91,7 +91,7 @@ export default function PremiumHeroSection() {
           {/* Enhanced Subheading */}
           <div className="w-full max-w-4xl">
             <motion.h3 initial={{scale:0,y:200,opacity:0}} whileInView={{scale:1,y:0,opacity:1}} transition={{duration:1.8,ease:easeIn}}
-              className={`font-[poppins] text-2xl md:text-3xl lg:text-4xl text-white text-center leading-relaxed font-light tracking-wide transition-all duration-1000 delay-1100 ${
+              className={`font-[Doren] text-2xl md:text-3xl lg:text-4xl text-white text-center leading-relaxed font-light tracking-wide transition-all duration-1000 delay-1100 ${
                 isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
             >

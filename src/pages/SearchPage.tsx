@@ -273,7 +273,7 @@ const SearchPage = () => {
                 const genderCategory = getGenderCategory(perfume)
                 const originalPrice = Math.floor(perfume.price_inr * 1.3)
                 return (
-                  <Link to={`/search/${perfume.id}`} key={perfume.id}>
+                  <Link to={`/product/${perfume.id}`} key={perfume.id}>
                     <div
                       className="bg-white font-[montserrat] border border-gray-200 rounded-2xl hover:shadow-2xl hover:shadow-gold/10 transition-all duration-500 transform hover:-translate-y-3 group relative overflow-hidden"
                       onMouseEnter={() => setHoveredProduct(perfume.id)}

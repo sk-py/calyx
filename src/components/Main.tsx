@@ -195,7 +195,7 @@ const Main = () => {
                 </span>
               </p>
 
-              <Link to ="/search">
+              <Link to ="/product">
                 <Button variant="default" className="">
                   Try Now <LiaArrowRightSolid />
                 </Button>

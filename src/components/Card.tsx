@@ -6,7 +6,7 @@ interface CardProps {
 }
 const Card = ({ perfume }: CardProps) => {
   return (
-    <Link to={`/search/${perfume.id}`} className="flex-shrink-0">
+    <Link to={`/product/${perfume.id}`} className="flex-shrink-0">
       <div className="p-4 w-fit rounded-xl bg-gray-100 relative">
         <img
           src={perfume.image}
