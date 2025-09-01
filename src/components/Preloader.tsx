@@ -13,7 +13,7 @@ export default function PreloaderReveal({
   title = "Calyx",
   subtitle = "PARFUM DE LUXE",
   durationMs = 2500,
-  curtainDurationMs = 4500,
+  curtainDurationMs = 2000,
   curtainColor = "#000000",
   spinnerColor = "#ffffff",
 }: PreloaderRevealProps) {

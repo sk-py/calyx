@@ -20,24 +20,21 @@ export default function ScrollGiftSections() {
       heading: "CRAFTED TO LAST",
       description:
         "With up to 95% of concentration, Capri perfumes are built for projection and longevity — lasting 8-12 hours to accompany you through every moment.",
-      image:
-        "https://images.unsplash.com/photo-1622618991746-fe6004db3a47?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/all_images/Villian 2.png",
       imageAlt: "Luxury perfume bottle",
     },
     {
       heading: "LUXURY, REDEFINED",
       description:
         "Every Capri creation is more than a perfume — it's a statement. Closest to making a memory, carrying you back to those worth reliving.",
-      image:
-        "https://images.unsplash.com/photo-1723391962110-299d412ca046?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/all_images/timeless 1.2.png",
       imageAlt: "Elegant perfume gift box",
     },
     {
       heading: "A SCENT YOU'LL KNOW INSTANTLY",
       description:
         "Our Scent DNA achieves up to 90-95% concentration and similarity of world-renowned perfumes, captured with precision.",
-      image:
-        "https://images.unsplash.com/photo-1723391962154-8a2b6299bc09?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      image: "/assets/all_images/ONYX 2.png",
       imageAlt: "Premium perfume collection",
     },
   ];

@@ -185,10 +185,6 @@ function App() {
     // Show preloader during initial load or route transitions
     const showPreloader = isInitialLoad || navigation.state === "loading";
 
-    // if (showPreloader) {
-    //   return <Preloader />;
-    // }
-
     return (
       <>
         {showPreloader && <Preloader />}

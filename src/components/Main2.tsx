@@ -293,7 +293,7 @@ function AnimatedWords({ text }: { text: string }) {
 export default function FullImageHero({
   headline = ["Awaken Your Senses", "With Every Note"],
   subtext = "All Collection",
-  ctaLabel = "Explore More",
+  ctaLabel = "Explore",
   imageSrc = "/assets/images/Web Banner 012.png",
   className,
 }: FullImageHeroProps) {
@@ -339,7 +339,7 @@ export default function FullImageHero({
   return (
     <>
       <section
-        className={`relative w-full h-[88vh] md:h-[100vh] mt-16 overflow-hidden ${className || ""}`}
+        className={`relative w-full h-[88vh] md:h-[100vh] mt-16 max-sm:mt-14 overflow-hidden bg-black ${className || ""}`}
         onMouseMove={onMouseMove}
         onMouseLeave={onMouseLeave}
         aria-label="Hero"
@@ -400,7 +400,7 @@ export default function FullImageHero({
                           ease: "easeInOut",
                         },
                       })
-                    } // Resume animation on leave
+                    } 
                   >
                     <span className="hover-underline-animation pb-2 tracking-[4px] text-lg pr-4 uppercase text-white font-[Doren]">
                       {ctaLabel}
