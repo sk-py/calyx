@@ -29,12 +29,13 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Discover Timeless a bold, aromatic fragnance with fresh bergamot and a masculine woody base. Perfect for confident men seeking a refined, long-lasting everyday fragrance.",
     price_inr: 350,
-    image: "/assets/images/perfume bg2.png",
+    image: "/assets/all_images/Product-Images/Timeless.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/Timeless.png",
+      "/assets/all_images/timeless 1.png",
+      "/assets/all_images/timeless 1.2.png",
+      // "/assets/images/pmf2-r.png",
+      // "/assets/images/pmf1-r.png",
     ],
   },
   {
@@ -50,12 +51,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Timeless Intense is a spicy, powerful scent with deep amber and warm spices. Ideal for evening wear and special occasions, it makes a commanding impression.",
     price_inr: 350,
-    image: "/assets/images/perfumebg.png",
+    image: "/assets/all_images/Product-Images/Timeless intense.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/Timeless intense.png",
+      "/assets/all_images/timeless intense 1.png",
+      "/assets/all_images/timeless intense.2.png",
     ],
     tags: ["new"],
   },
@@ -72,12 +72,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Azure brings oceanic freshness with citrus and aquatic notes a refreshing scent that captures the spirit of the Mediterranean. Light yet lingering.",
     price_inr: 350,
-    image: "/assets/images/pmf1-r.png",
+    image: "/assets/all_images/Product-Images/azure.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/azure.png",
+     "/assets/all_images/Azure 2.png",
+     "/assets/all_images/Azure.png"
     ],
     tags: ["popular"],
   },
@@ -94,12 +93,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Onyx exudes strength and ambition with a blend of pineapple, birch, and musk. A modern, versatile scent for leaders and visionaries.",
     price_inr: 350,
-    image: "/assets/images/pmf2-r.png",
+    image: "/assets/all_images/Product-Images/ONXY.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/ONXY.png",
+      "/assets/all_images/ONYX.png",
+      "/assets/all_images/ONYX 2.png",
     ],
   },
   {
@@ -115,12 +113,9 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Indulge in Caramel, a rich, gourmand fragrance with creamy vanilla and sweet sugar notes. A deliciously warm and comforting scent for her.",
     price_inr: 350,
-    image: "/assets/images/pmf3-r.png",
+    image: "/assets/all_images/Product-Images/caremal.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/caremal.png",
     ],
     tags: ["limited_edition", "exclusive"],
   },
@@ -137,12 +132,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Nova is a fruity-floral explosion with vibrant berries and soft florals, perfect for the playful and radiant woman. Youthful, bright, and charming.",
     price_inr: 350,
-    image: "/assets/images/perfume bg2.png",
+    image: "/assets/all_images/Product-Images/NOVA.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/NOVA.png",
+      "/assets/all_images/Nova 1.png",
+      "/assets/all_images/Nova.png",
     ],
     tags: ["new"],
   },
@@ -159,12 +153,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Scarlet blends blood orange and vanilla with spicy florals for a sensual and bold feminine fragrance. Designed for the fearless woman.",
     price_inr: 350,
-    image: "/assets/images/pmf2-r.png",
+    image: "/assets/all_images/Product-Images/scarlet.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/scarlet.png",
+      "/assets/all_images/SCARLET.1.png",
+      "/assets/all_images/SCARLET.png",
     ],
   },
   {
@@ -180,12 +173,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Pulse energises with fresh apple and ginger, layered over smooth tonka bean. A clean, modern scent for the driven and dynamic man.",
     price_inr: 350,
-    image: "/assets/images/pmf3-r.png",
+    image: "/assets/all_images/Product-Images/pulse.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/pulse.png",
+      "/assets/all_images/Pulse.png",
+      "/assets/all_images/Pulse 2.png",
     ],
   },
   {
@@ -201,12 +193,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Villain is fresh, aquatic, and daring. With notes of cinnamon, bergamot, and amber, its for the man who plays by his own rules.",
     price_inr: 350,
-    image: "/assets/images/perfumebg.png",
+    image: "/assets/all_images/Product-Images/Villian.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/Villian.png",
+      "/assets/all_images/Villian.png",
+      "/assets/all_images/Villian 2.png",
     ],
     tags: ["best_seller"],
   },
@@ -223,12 +214,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Deception is a seductive floral-fruity fragrance with lush lychee, peony, and soft musk. For the elegant soul with a mysterious allure.",
     price_inr: 350,
-    image: "/assets/images/pmf1-r.png",
+    image: "/assets/all_images/Product-Images/deception.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/pmf3-r.png",
-      "/assets/images/pmf3-r.png",
-      "/assets/images/pmf3-r.png",
+      "/assets/all_images/Product-Images/deception.png",
+      "/assets/all_images/Deception.png",
+      "/assets/all_images/Deception 2.png",
     ],
     tags: ["top_seller"],
   },
@@ -245,12 +235,11 @@ export const perfumeData: perfume_Data[] = [
     description:
       "Crimson Oud combines the richness of oud with blooming rose, creating a luxurious, oriental scent that leaves a lasting impression.",
     price_inr: 350,
-    image: "/assets/images/pmf3-r.png",
+    image: "/assets/all_images/Product-Images/crimson oud.png",
     multi_images: [
-      "/assets/images/pmf3-r.png",
-      "/assets/images/perfumebg.png",
-      "/assets/images/pmf2-r.png",
-      "/assets/images/pmf1-r.png",
+      "/assets/all_images/Product-Images/crimson oud.png",
+      "/assets/all_images/Crimson Oud.png",
+      "/assets/all_images/Crimson Oud 2.png",
     ],
     tags: ["new", "top_seller"],
   },
