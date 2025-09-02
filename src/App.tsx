@@ -117,7 +117,6 @@
 
 // export default App;
 
-
 import {
   createBrowserRouter,
   Outlet,
@@ -170,17 +169,8 @@ function App() {
 
     // Scroll to top on route change and handle initial load
     useEffect(() => {
-      if (!isInitialLoad) {
-        window.scrollTo(0, 0);
-      }
-
-      if (isInitialLoad) {
-        const timer = setTimeout(() => {
-          setIsInitialLoad(false);
-        }, 8000); 
-        return () => clearTimeout(timer);
-      }
-    }, [pathname, isInitialLoad]);
+      window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+    }, [pathname]);
 
     // Show preloader during initial load or route transitions
     const showPreloader = isInitialLoad || navigation.state === "loading";

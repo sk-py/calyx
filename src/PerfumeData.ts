@@ -34,8 +34,6 @@ export const perfumeData: perfume_Data[] = [
       "/assets/all_images/Product-Images/Timeless.png",
       "/assets/all_images/timeless 1.png",
       "/assets/all_images/timeless 1.2.png",
-      // "/assets/images/pmf2-r.png",
-      // "/assets/images/pmf1-r.png",
     ],
   },
   {
@@ -54,8 +52,8 @@ export const perfumeData: perfume_Data[] = [
     image: "/assets/all_images/Product-Images/Timeless intense.png",
     multi_images: [
       "/assets/all_images/Product-Images/Timeless intense.png",
-      "/assets/all_images/timeless intense 1.png",
       "/assets/all_images/timeless intense.2.png",
+      "/assets/all_images/timeless intense 1.png",
     ],
     tags: ["new"],
   },

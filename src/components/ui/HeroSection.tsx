@@ -111,7 +111,7 @@ export default function PremiumHeroSection() {
             }`}
           >
             <div className="flex flex-col items-center space-y-2 animate-bounce">
-              <div className="text-white/60 text-xs tracking-[0.2em] font-light">SCROLL</div>
+              <div className="text-white/60 text-lg tracking-widest font-[Doren] ">SCROLL</div>
               <div className="w-px h-8 bg-gradient-to-b from-gold/60 to-transparent" />
             </div>
           </div>
