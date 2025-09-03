@@ -52,7 +52,7 @@ export const perfumeData: perfume_Data[] = [
     image: "/assets/all_images/Product-Images/Timeless intense.png",
     multi_images: [
       "/assets/all_images/Product-Images/Timeless intense.png",
-      "/assets/all_images/Timeless intense.png",
+      "/public/assets/all_images/timeless intense.png",
       "/assets/all_images/timeless intense.2.png",
       "/assets/all_images/timeless intense 1.png",
     ],

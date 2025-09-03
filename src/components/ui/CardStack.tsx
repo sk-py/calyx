@@ -240,7 +240,7 @@ const images = [
   "/assets/all_images/SCARLET.1.png",
   "/assets/all_images/Pulse.png",
   "/assets/all_images/Crimson Oud.png",
-  "/assets/all_images/Timeless intense.png",
+  "/assets/all_images/timeless intense.png",
   "/assets/all_images/ONYX.png",
   "/assets/all_images/timeless 1.png",
   "/assets/all_images/Villian.png",
