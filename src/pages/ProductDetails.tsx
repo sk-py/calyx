@@ -3349,7 +3349,6 @@
 
 // export default ProductDetails;
 
-
 //* Version 7
 
 import React, { useEffect, useState, useRef } from "react";
@@ -3433,7 +3432,9 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const existingWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const existingWishlist = JSON.parse(
+      localStorage.getItem("wishlist") || "[]"
+    );
 
     if (product?.id) {
       setIsInCart(existingCart.includes(product.id));
@@ -3457,9 +3458,13 @@ const ProductDetails = () => {
   };
 
   const toggleWishlist = () => {
-    const existingWishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const existingWishlist = JSON.parse(
+      localStorage.getItem("wishlist") || "[]"
+    );
     if (isWishlisted) {
-      const updatedWishlist = existingWishlist.filter((id) => id !== product.id);
+      const updatedWishlist = existingWishlist.filter(
+        (id) => id !== product.id
+      );
       localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
       setIsWishlisted(false);
     } else {
@@ -3503,11 +3508,15 @@ const ProductDetails = () => {
       stars.push(<FaStar key={i} className="text-yellow-400 text-xs" />);
     }
     if (hasHalfStar) {
-      stars.push(<FaStarHalfAlt key="half" className="text-yellow-400 text-xs" />);
+      stars.push(
+        <FaStarHalfAlt key="half" className="text-yellow-400 text-xs" />
+      );
     }
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<FaRegStar key={`empty-${i}`} className="text-yellow-400 text-xs" />);
+      stars.push(
+        <FaRegStar key={`empty-${i}`} className="text-yellow-400 text-xs" />
+      );
     }
     return stars;
   };
@@ -3526,13 +3535,19 @@ const ProductDetails = () => {
   ];
 
   const getCurrentPrice = () => {
-    const selectedOption = sizeOptions.find((option) => option.size === selectedSize);
+    const selectedOption = sizeOptions.find(
+      (option) => option.size === selectedSize
+    );
     return selectedOption ? selectedOption.price : product?.price_inr || 0;
   };
 
   const features = [
     { icon: FaClock, label: "LONG LASTING" },
-    { icon: FaCertificate, label: "IFRA-CERTIFIED", imageSrc: "/assets/ifra.svg" },
+    {
+      icon: FaCertificate,
+      label: "IFRA-CERTIFIED",
+      imageSrc: "/assets/ifra.svg",
+    },
     { icon: FaOilCan, label: "IMPORTED OILS" },
     { icon: FaFlag, label: "MADE IN INDIA", imageSrc: "/assets/India.png" },
   ];
@@ -3576,7 +3591,10 @@ const ProductDetails = () => {
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link to="/product" className="hover:text-black transition-colors">
+                  <Link
+                    to="/product"
+                    className="hover:text-black transition-colors"
+                  >
                     FRAGRANCES
                   </Link>
                 </BreadcrumbLink>
@@ -3654,7 +3672,9 @@ const ProductDetails = () => {
                   <button
                     onClick={toggleWishlist}
                     className="p-3 bg-white border border-gray-200 hover:bg-gray-50 transition-colors group"
-                    aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
+                    aria-label={
+                      isWishlisted ? "Remove from wishlist" : "Add to wishlist"
+                    }
                   >
                     {isWishlisted ? (
                       <FaHeart className="text-red-500 text-lg" />
@@ -3685,26 +3705,39 @@ const ProductDetails = () => {
 
                 <div className="flex items-center gap-4 mb-6">
                   <div className="flex items-center gap-2">
-                    <div className="flex items-center gap-1">{renderStars()}</div>
-                    <span className="text-sm text-gray-600 font-light">4.5</span>
+                    <div className="flex items-center gap-1">
+                      {renderStars()}
+                    </div>
+                    <span className="text-sm text-gray-600 font-light">
+                      4.5
+                    </span>
                   </div>
                   <div className="h-3 w-px bg-gray-300"></div>
-                  <span className="text-sm text-gray-600 font-light">11,940 reviews</span>
+                  <span className="text-sm text-gray-600 font-light">
+                    11,940 reviews
+                  </span>
                 </div>
 
                 <p className="text-gray-700 font-light text-lg tracking-wide">
                   EAU DE PARFUM
                 </p>
                 <p className="text-gray-600 font-light tracking-wide">
-                  Inspired by <span className="text-black font-medium">{product.inspired_by}</span>
+                  Inspired by{" "}
+                  <span className="text-black font-medium">
+                    {product.inspired_by}
+                  </span>
                 </p>
               </div>
 
               {/* Scent Intensity */}
               <div className="border-t border-b border-gray-200 py-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium tracking-wide text-gray-900">SCENT INTENSITY</span>
-                  <span className="text-sm font-light text-gray-600">SIGNIFICANT</span>
+                  <span className="text-sm font-medium tracking-wide text-gray-900">
+                    SCENT INTENSITY
+                  </span>
+                  <span className="text-sm font-light text-gray-600">
+                    SIGNIFICANT
+                  </span>
                 </div>
                 <div className="flex items-center gap-1">
                   <div className="w-4 h-4 bg-black"></div>
@@ -3716,7 +3749,9 @@ const ProductDetails = () => {
 
               {/* Size Selection */}
               <div>
-                <h3 className="text-sm font-medium tracking-wide text-gray-900 mb-4">SELECT SIZE</h3>
+                <h3 className="text-sm font-medium tracking-wide text-gray-900 mb-4">
+                  SELECT SIZE
+                </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {sizeOptions.map((option) => (
                     <button
@@ -3735,7 +3770,9 @@ const ProductDetails = () => {
                         <div className="text-lg font-light text-gray-900 mb-2 tracking-wide">
                           {option.size}
                         </div>
-                        <div className="text-sm text-gray-600 font-light">₹{option.price}</div>
+                        <div className="text-sm text-gray-600 font-light">
+                          ₹{option.price}
+                        </div>
                         {!option.available && (
                           <div className="text-xs text-gray-400 font-light mt-2 tracking-wide">
                             COMING SOON
@@ -3769,7 +3806,9 @@ const ProductDetails = () => {
 
                   {/* Quantity */}
                   <div className="flex items-center">
-                    <span className="text-sm font-medium tracking-wide text-gray-900 mr-4">QTY</span>
+                    <span className="text-sm font-medium tracking-wide text-gray-900 mr-4">
+                      QTY
+                    </span>
                     <div className="flex items-center border border-gray-300">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -3796,15 +3835,13 @@ const ProductDetails = () => {
                 <Button
                   onClick={() => handleAddToCart(product.id)}
                   disabled={isLoading}
-                  className={`w-full py-6 text-xl tracking-[0.2em] font-[Doren] font-semibold transition-all duration-300 ${
-                    isInCart
-                      ? "bg-gray-800 text-white cursor-default"
-                      : "bg-black hover:bg-gray-900 text-white"
-                  }`}
+                  className={`w-full py-6 text-xl  tracking-[0.2em] font-[Doren] font-semibold transition-all duration-300 bg-black hover:bg-gray-900 text-white
+                    
+                  `}
                 >
                   {isLoading ? (
                     <div className="flex items-center gap-3">
-                      <div className="w-4 h-4 border border-white border-t-transparent animate-spin"></div>
+                      <div className="w-4 h-4 rounded-full  border border-white border-t-transparent animate-spin"></div>
                       ADDING TO CART
                     </div>
                   ) : isInCart ? (
@@ -3872,8 +3909,9 @@ const ProductDetails = () => {
                   DESCRIPTION
                 </h3>
                 <p className="text-gray-700 leading-relaxed font-light">
-                  A sophisticated interpretation inspired by {product.inspired_by}. Crafted with
-                  the finest imported oils, this Eau de Parfum delivers an uncompromising olfactory
+                  A sophisticated interpretation inspired by{" "}
+                  {product.inspired_by}. Crafted with the finest imported oils,
+                  this Eau de Parfum delivers an uncompromising olfactory
                   experience that embodies luxury and refinement.
                 </p>
               </div>
@@ -3883,16 +3921,28 @@ const ProductDetails = () => {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">TOP</h4>
-                    <p className="text-sm text-gray-600 font-light">Fresh & Luminous</p>
+                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">
+                      TOP
+                    </h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      Fresh & Luminous
+                    </p>
                   </div>
                   <div>
-                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">HEART</h4>
-                    <p className="text-sm text-gray-600 font-light">Rich & Complex</p>
+                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">
+                      HEART
+                    </h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      Rich & Complex
+                    </p>
                   </div>
                   <div>
-                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">BASE</h4>
-                    <p className="text-sm text-gray-600 font-light">Deep & Lasting</p>
+                    <h4 className="text-xs font-medium text-gray-900 mb-2 tracking-wide">
+                      BASE
+                    </h4>
+                    <p className="text-sm text-gray-600 font-light">
+                      Deep & Lasting
+                    </p>
                   </div>
                 </div>
               </div>
@@ -3924,7 +3974,9 @@ const ProductDetails = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
               <div className="text-center md:text-left">
-                <div className="text-6xl font-light text-gray-900 mb-2">4.5</div>
+                <div className="text-6xl font-light text-gray-900 mb-2">
+                  4.5
+                </div>
                 <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
                   {renderStars()}
                 </div>
@@ -3939,7 +3991,9 @@ const ProductDetails = () => {
                     <div className="flex-1 bg-gray-200 h-1">
                       <div
                         className="bg-black h-1 transition-all duration-500"
-                        style={{ width: `${stars === 5 ? 70 : stars === 4 ? 20 : 5}%` }}
+                        style={{
+                          width: `${stars === 5 ? 70 : stars === 4 ? 20 : 5}%`,
+                        }}
                       ></div>
                     </div>
                     <span className="text-sm text-gray-600 w-12">
@@ -3970,7 +4024,10 @@ const ProductDetails = () => {
                   text: "Sophisticated packaging and an exquisite fragrance. Highly recommended.",
                 },
               ].map((review, index) => (
-                <div key={index} className="border-b border-gray-100 pb-8 last:border-b-0">
+                <div
+                  key={index}
+                  className="border-b border-gray-100 pb-8 last:border-b-0"
+                >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-gray-200 flex items-center justify-center font-medium text-gray-700 text-sm">
                       {review.initial}
@@ -3980,9 +4037,13 @@ const ProductDetails = () => {
                         <span className="font-medium text-gray-900 text-sm tracking-wide">
                           {review.name}
                         </span>
-                        <div className="flex items-center gap-1">{renderStars(review.rating)}</div>
+                        <div className="flex items-center gap-1">
+                          {renderStars(review.rating)}
+                        </div>
                       </div>
-                      <p className="text-gray-700 font-light leading-relaxed">{review.text}</p>
+                      <p className="text-gray-700 font-light leading-relaxed">
+                        {review.text}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -4004,7 +4065,7 @@ const ProductDetails = () => {
               VIEW ALL
             </Link>
           </div>
-          <NewProducts  />
+          <NewProducts />
         </div>
       </div>
     </div>
