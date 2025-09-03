@@ -2669,17 +2669,30 @@ const ProductDetails = () => {
   const { productid } = useParams();
   const product = perfumeData.find((item) => item.id === Number(productid));
 
-  const [currentIndex, setCurrentIndex] = useState(0); // State for carousel index
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isInCart, setIsInCart] = useState(false);
   const [selectedSize, setSelectedSize] = useState("20ML");
   const [quantity, setQuantity] = useState(1);
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false); // Track screen size
   const containerRef = useRef<HTMLDivElement>(null);
   const imagesRef = useRef<HTMLDivElement>(null);
 
-  // Framer Motion scroll tracking for sticky behavior
+  // Check screen size for Framer Motion sticky behavior
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint in Tailwind (~1024px)
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  // Framer Motion scroll tracking for sticky behavior (only on large screens)
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
@@ -2693,7 +2706,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (product?.multi_images) {
-      setCurrentIndex(0); // Reset index when product changes
+      setCurrentIndex(0);
     }
   }, [product]);
 
@@ -2804,9 +2817,13 @@ const ProductDetails = () => {
 
   const features = [
     { icon: FaClock, label: "LONG LASTING" },
-    { icon: FaCertificate, label: "IFRA-CERTIFIED" },
+    {
+      icon: FaCertificate,
+      label: "IFRA-CERTIFIED",
+      imageSrc: "/assets/ifra.svg",
+    },
     { icon: FaOilCan, label: "IMPORTED OILS" },
-    { icon: FaFlag, label: "MADE IN INDIA" },
+    { icon: FaFlag, label: "MADE IN INDIA", imageSrc: "/assets/India.png" },
   ];
 
   if (!product) {
@@ -2835,7 +2852,7 @@ const ProductDetails = () => {
     <div ref={containerRef} className="productdetails bg-white min-h-screen">
       <div className="max-w-7xl mx-auto max-sm:pt-20 pt-28 pb-16 max-sm:px-2 px-8">
         {/* Breadcrumb */}
-        <div className=" max-sm:mb-4 mb-12">
+        <div className="max-sm:mb-4 mb-12">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
@@ -2863,11 +2880,11 @@ const ProductDetails = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          {/* Product Images Section - Pinned with Framer Motion */}
+          {/* Product Images Section - Sticky only on large screens */}
           <motion.div
             ref={imagesRef}
-            style={{ transform: imagesTransform }}
-            className="lg:col-span-7 sticky top-28 self-start"
+            style={isLargeScreen ? { transform: imagesTransform } : {}}
+            className="lg:col-span-7 lg:sticky lg:top-28 lg:self-start"
           >
             <div className="flex flex-col gap-6">
               {/* Main image with carousel controls */}
@@ -3014,9 +3031,9 @@ const ProductDetails = () => {
                       key={option.size}
                       disabled={!option.available}
                       onClick={() => setSelectedSize(option.size)}
-                      className={`relative  border transition-all duration-200 ${
+                      className={`relative border transition-all duration-200 ${
                         selectedSize === option.size
-                          ? "border-black  bg-gray-50"
+                          ? "border-black bg-gray-50"
                           : option.available
                           ? "border-gray-200 hover:border-gray-400"
                           : "border-gray-100 bg-gray-50 cursor-not-allowed opacity-50"
@@ -3035,10 +3052,6 @@ const ProductDetails = () => {
                           </div>
                         )}
                       </div>
-
-                      {/* {selectedSize === option.size && option.available && (
-                        <div className="absolute top-2 right-2 w-3 h-3 bg-black"></div>
-                      )} */}
                     </button>
                   ))}
                 </div>
@@ -3122,7 +3135,14 @@ const ProductDetails = () => {
                       key={index}
                       className="text-center py-6 border border-gray-100 hover:border-gray-300 transition-colors"
                     >
-                      <feature.icon className="text-2xl text-gray-700 mb-3 mx-auto" />
+                      {feature.imageSrc ? (
+                        <img
+                          src={feature?.imageSrc}
+                          className="h-6 w-14 mb-3 object-contain mx-auto"
+                        />
+                      ) : (
+                        <feature.icon className="text-2xl text-gray-700 mb-3 mx-auto" />
+                      )}
                       <span className="text-xs font-medium text-gray-900 tracking-wide">
                         {feature.label}
                       </span>
@@ -3219,13 +3239,13 @@ const ProductDetails = () => {
         {/* Reviews Section */}
         <div className="mt-24 border-t border-gray-200 pt-16">
           <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-12">
+            <div className="flex items-center justify-between max-sm:justify-center mb-12">
               <h3 className="text-2xl font-light tracking-wide text-gray-900">
                 CUSTOMER REVIEWS
               </h3>
-              <button className="text-sm text-gray-600 border-b border-gray-300 hover:border-black transition-colors font-light tracking-wide">
+              {/* <button className="text-sm text-gray-600 border-b border-gray-300 hover:border-black transition-colors font-light tracking-wide">
                 WRITE REVIEW
-              </button>
+              </button> */}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
               <div className="text-center md:text-left">
@@ -3315,7 +3335,7 @@ const ProductDetails = () => {
             </h3>
             <Link
               to="/product"
-              className="text-lg text-gray-600 border-b border-gray-300 hover:border-black transition-colors font-[Doren] tracking-wide"
+              className="text-lg text-gray-600 border-b max-sm:hidden border-gray-300 hover:border-black transition-colors font-[Doren] tracking-wide"
             >
               VIEW ALL
             </Link>

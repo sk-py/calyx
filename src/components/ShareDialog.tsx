@@ -48,12 +48,12 @@ export default function ShareDialog({ open, onOpenChange }: ShareDialogProps) {
       <DialogContent className="max-w-fit">
         <DialogHeader className="flex flex-row items-center justify-between">
           <DialogTitle>Share this Fragrance</DialogTitle>
-          <DialogClose asChild>
+          {/* <DialogClose asChild>
             <Button variant="ghost" size="icon" className="h-6 w-6 rounded-full">
               <X size={16} />
               <span className="sr-only">Close</span>
             </Button>
-          </DialogClose>
+          </DialogClose> */}
         </DialogHeader>
 
         <div className="grid grid-cols-5 gap-4 py-4">
