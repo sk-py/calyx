@@ -413,8 +413,6 @@
 
 // export default SearchPage
 
-
-
 import { useState, useEffect, useRef } from "react";
 import { MdClose } from "react-icons/md";
 import { Button } from "@/components/ui/button";
@@ -483,12 +481,31 @@ const isImageDark = (imageUrl: string) => {
   });
 };
 
-const tags = ["#new", "#Limited Edition", "#Soft", "#Moderate", "#Strong", "#Very Strong"];
+const tags = [
+  "#new",
+  "#Limited Edition",
+  "#Soft",
+  "#Moderate",
+  "#Strong",
+  "#Very Strong",
+];
 
 const getGenderCategory = (perfume: Perfume) => {
-  if (perfume.tags?.some((tag) => tag.toLowerCase().includes("women") || tag.toLowerCase().includes("feminine"))) {
+  if (
+    perfume.tags?.some(
+      (tag) =>
+        tag.toLowerCase().includes("women") ||
+        tag.toLowerCase().includes("feminine")
+    )
+  ) {
     return "Women";
-  } else if (perfume.tags?.some((tag) => tag.toLowerCase().includes("men") || tag.toLowerCase().includes("masculine"))) {
+  } else if (
+    perfume.tags?.some(
+      (tag) =>
+        tag.toLowerCase().includes("men") ||
+        tag.toLowerCase().includes("masculine")
+    )
+  ) {
     return "Men";
   }
   return "Unisex";
@@ -515,12 +532,21 @@ function Stars({ value = 0 }: { value: number }) {
         const isHalf = i === full && hasHalf;
         return (
           <div key={i} className="relative w-4 h-4">
-            <Star className="absolute inset-0 w-4 h-4 text-amber-400" strokeWidth={1.5} />
+            <Star
+              className="absolute inset-0 w-4 h-4 text-amber-400"
+              strokeWidth={1.5}
+            />
             <div
-              className={`absolute inset-0 overflow-hidden ${isFull ? "w-full" : isHalf ? "w-1/2" : "w-0"}`}
+              className={`absolute inset-0 overflow-hidden ${
+                isFull ? "w-full" : isHalf ? "w-1/2" : "w-0"
+              }`}
               aria-hidden="true"
             >
-              <Star className="w-4 h-4 text-amber-500" strokeWidth={0} fill="currentColor" />
+              <Star
+                className="w-4 h-4 text-amber-500"
+                strokeWidth={0}
+                fill="currentColor"
+              />
             </div>
           </div>
         );
@@ -530,7 +556,9 @@ function Stars({ value = 0 }: { value: number }) {
 }
 
 const SearchPage = () => {
-  const uniqueBrands = Array.from(new Set(perfumeData.map((p) => p.inspired_by)));
+  const uniqueBrands = Array.from(
+    new Set(perfumeData.map((p) => p.inspired_by))
+  );
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
   const [imageStyles, setImageStyles] = useState({});
@@ -539,12 +567,16 @@ const SearchPage = () => {
 
   useEffect(() => {
     const processImages = async () => {
-      const styles: { [key: string]: { borderRadius: string; backgroundColor: string } } = {};
+      const styles: {
+        [key: string]: { borderRadius: string; backgroundColor: string };
+      } = {};
       for (const perfume of perfumeData as Perfume[]) {
         const dark = await isImageDark(perfume.image);
         styles[perfume.id] = {
           borderRadius: getRandomRadius(),
-          backgroundColor: dark ? "#f0f0f0" : "linear-gradient(to right, #444, #222)",
+          backgroundColor: dark
+            ? "#f0f0f0"
+            : "linear-gradient(to right, #444, #222)",
         };
       }
       setImageStyles(styles);
@@ -569,7 +601,9 @@ const SearchPage = () => {
   }, [selectedTag, selectedBrand]);
 
   const filteredData = perfumeData.filter((item: Perfume) => {
-    const tagValue = selectedTag ? selectedTag.replace("#", "").toLowerCase() : "";
+    const tagValue = selectedTag
+      ? selectedTag.replace("#", "").toLowerCase()
+      : "";
     const tagMatch = selectedTag
       ? item.tags?.some((tag) => tag.toLowerCase().includes(tagValue)) ||
         item.sillage?.toLowerCase().includes(tagValue) ||
@@ -577,7 +611,9 @@ const SearchPage = () => {
         (tagValue === "new" && item.isNew) ||
         (tagValue === "limited edition" && item.isLimited)
       : true;
-    const brandMatch = selectedBrand ? item.inspired_by === selectedBrand : true;
+    const brandMatch = selectedBrand
+      ? item.inspired_by === selectedBrand
+      : true;
     return tagMatch && brandMatch;
   }) as Perfume[];
 
@@ -607,12 +643,12 @@ const SearchPage = () => {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-12">
-          <div className="flex flex-wrap gap-3 mb-8 justify-center">
+          <div className="flex flex-wrap max-sm:gap-2 gap-3 mb-8 justify-center">
             {tags.map((tag, i) => (
               <button
                 key={i}
                 onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
-                className={`px-6 py-3 border rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
+                className={`max-sm:px-3 max-sm:py-2 max-sm:text-xs px-6 py-3 border rounded-full text-sm font-medium tracking-wide transition-all duration-300 ${
                   selectedTag === tag
                     ? "bg-black text-white border-black shadow-lg shadow-black/20"
                     : "bg-white text-gray-700 border-gray-300 hover:border-gold hover:shadow-md hover:shadow-gold/10"
@@ -623,9 +659,13 @@ const SearchPage = () => {
             ))}
           </div>
 
-          <div className="flex justify-center items-center gap-4 mb-8">
+          <div className="flex justify-center items-center gap-4 max-sm:mb-4 mb-8">
             <p className="text-gray-600 font-medium text-2xl font-[Doren] tracking-wide">
-              Showing <span className="font-semibold text-black">{filteredData.length}</span> product
+              Showing{" "}
+              <span className="font-semibold text-black">
+                {filteredData.length}
+              </span>{" "}
+              product
               {filteredData.length !== 1 ? "s" : ""}
             </p>
             {(selectedTag || selectedBrand) && (
@@ -648,7 +688,10 @@ const SearchPage = () => {
             >
               <FaChevronLeft />
             </button>
-            <div ref={scrollRef} className="py-4 px-12 overflow-x-auto flex gap-3 scrollbar-hide">
+            <div
+              ref={scrollRef}
+              className="py-4 px-12 overflow-x-auto flex gap-3 scrollbar-hide"
+            >
               <Button
                 className={`whitespace-nowrap border font-medium tracking-wide transition-all duration-300 ${
                   selectedBrand === null
@@ -687,14 +730,19 @@ const SearchPage = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" ref={gridRef}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            ref={gridRef}
+          >
             {filteredData.length > 0 ? (
               filteredData.map((p, index) => {
                 const rating = getRandomRating();
                 const purchaseCount = getRandomPurchaseCount();
                 const genderCategory = getGenderCategory(p);
                 const current = p.price_inr ?? 45;
-                const original = p.price_inr ? Math.round(p.price_inr + 100) : 60;
+                const original = p.price_inr
+                  ? Math.round(p.price_inr + 100)
+                  : 60;
                 const isNew = Boolean(p.isNew) || index % 4 === 1;
                 const reviews = purchaseCount;
 
@@ -724,7 +772,11 @@ const SearchPage = () => {
                           />
                           {p.multi_images && (
                             <img
-                              src={p.multi_images[1] || p.image || "/placeholder.svg"}
+                              src={
+                                p.multi_images[1] ||
+                                p.image ||
+                                "/placeholder.svg"
+                              }
                               alt={`${p.name} alternate`}
                               className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover/image:opacity-100"
                             />
@@ -772,8 +824,12 @@ const SearchPage = () => {
                               )}
                             </div>
                             <div className="flex text-lg flex-row font-serif items-center gap-2">
-                              <p className="font-normal">₹{current.toFixed(1)}</p>
-                              <span className="line-through font-extralight">₹{original}</span>
+                              <p className="font-normal">
+                                ₹{current.toFixed(1)}
+                              </p>
+                              <span className="line-through font-extralight">
+                                ₹{original}
+                              </span>
                             </div>
                           </div>
                           <h3 className="mt-2 font-semibold tracking-wider text-gray-900 text-2xl uppercase">
@@ -796,7 +852,9 @@ const SearchPage = () => {
             ) : (
               <div className="col-span-full text-center py-20">
                 <div className="bg-gray-50 rounded-2xl p-12 border border-gray-200">
-                  <p className="text-2xl text-gray-600 mb-6 font-light">No perfumes match the selected filters.</p>
+                  <p className="text-2xl text-gray-600 mb-6 font-light">
+                    No perfumes match the selected filters.
+                  </p>
                   <button
                     onClick={() => {
                       setSelectedTag(null);
@@ -816,7 +874,14 @@ const SearchPage = () => {
 
       <style jsx>{`
         .metal-3d {
-          background: linear-gradient(90deg, #27272a 0%, #2f2f33 20%, #d4d4d8 50%, #2f2f33 80%, #27272a 100%);
+          background: linear-gradient(
+            90deg,
+            #27272a 0%,
+            #2f2f33 20%,
+            #d4d4d8 50%,
+            #2f2f33 80%,
+            #27272a 100%
+          );
           background-size: 200% auto;
           background-position: 0% center;
           background-clip: text;
@@ -833,7 +898,10 @@ const SearchPage = () => {
           }
         }
         .bg-gradient-radial {
-          background: radial-gradient(circle at center, var(--tw-gradient-stops));
+          background: radial-gradient(
+            circle at center,
+            var(--tw-gradient-stops)
+          );
         }
         .scrollbar-hide {
           -ms-overflow-style: none;

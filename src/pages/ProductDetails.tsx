@@ -3958,13 +3958,13 @@ const ProductDetails = () => {
                   text: "Outstanding value proposition. The quality exceeds expectations for this price point.",
                 },
                 {
-                  initial: "P",
+                  initial: "S",
                   name: "SOHAIL S",
                   rating: 5,
                   text: "Exceptional longevity and projection. A true luxury experience that rivals the original.",
                 },
                 {
-                  initial: "A",
+                  initial: "S",
                   name: "SANJAY S.",
                   rating: 5,
                   text: "Sophisticated packaging and an exquisite fragrance. Highly recommended.",

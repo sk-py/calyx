@@ -7,7 +7,7 @@ const BackToTop = () => {
   // Show button when scrolled down
   useEffect(() => {
     const toggleVisibility = () => {
-      setIsVisible(window.scrollY > 300);
+      setIsVisible(window.scrollY > 1600);
     };
 
     window.addEventListener("scroll", toggleVisibility);
@@ -25,7 +25,7 @@ const BackToTop = () => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 z-[99] bg-yellow-300 text-black p-3 rounded-full shadow-lg transition-opacity duration-300 ease-in ${
+      className={`fixed max-sm:bottom-20 max-sm:right-2 bottom-6 right-6 z-[99] bg-black text-white border-zinc-600 border p-3 rounded-full shadow-lg transition-opacity duration-300 ease-in ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
       aria-label="Back to top"

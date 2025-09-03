@@ -21,7 +21,7 @@ const Home: React.FC = () => {
         <SubHeading />
         <CardStack/>
         <QuoteSection />
-        <div className="h-[500vh] overflow-hidden">
+        <div className="h-[200vh] md:h-[500vh] overflow-hidden">
         <GiftSection/>
         </div>
         {/* <HeroAbout/> */}
