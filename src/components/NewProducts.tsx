@@ -403,7 +403,6 @@
 
 // export default NewProducts;
 
-
 import { useRef, useEffect, useState } from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import { motion } from "framer-motion";
@@ -431,7 +430,11 @@ type Perfume = {
   multi_images?: string[];
 };
 
-const NewProducts = () => {
+type NewProductsProps = {
+  headingTexts?: string;
+};
+
+const NewProducts = ({ headingTexts }:NewProductsProps) => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const autoplayRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -589,13 +592,13 @@ const NewProducts = () => {
           variants={itemVariants}
         >
           {path === "/" && (
-            <h2 className="text-3xl md:text-5xl lg:text-7xl font-medium font-[Doren] text-gray-900">
+            <h2 className="text-3xl md:text-5xl w-full lg:text-7xl font-medium font-[Doren] text-gray-900">
               Meet Our Fragrance Icons
             </h2>
           )}
 
           {/* Mobile nav buttons */}
-          <div className="flex items-center gap-2 md:gap-3 lg:hidden">
+          <div className="flex flex-row w-full items-end justify-end gap-2 md:gap-3 lg:hidden">
             <motion.button
               onClick={scrollLeft}
               className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-zinc-500 flex items-center justify-center bg-white hover:bg-gray-50 transition-colors shadow-sm"
@@ -675,13 +678,17 @@ const NewProducts = () => {
                             alt={p.name}
                             className="w-full h-full object-cover absolute inset-0 transition-opacity duration-300 ease-in-out group-hover/image:opacity-0"
                           />
-                         {p.multi_images && (
-                              <img
-                                src={p.multi_images[1] || p.image || "/placeholder.svg"}
-                                alt={`${p.name} alternate`}
-                                className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover/image:opacity-100"
-                              />
-                            )}
+                          {p.multi_images && (
+                            <img
+                              src={
+                                p.multi_images[1] ||
+                                p.image ||
+                                "/placeholder.svg"
+                              }
+                              alt={`${p.name} alternate`}
+                              className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover/image:opacity-100"
+                            />
+                          )}
                           {/* New badge */}
                           {isNew && (
                             <span className="absolute left-2 top-2 group-hover:top-3 transition-all duration-300 rounded-full bg-black text-white text-xl px-6 py-0">
