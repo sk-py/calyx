@@ -27,7 +27,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Ambroxan, Cedarwood",
     sillage: "Strong",
     description:
-      "Discover Timeless a bold, aromatic fragnance with fresh bergamot and a masculine woody base. Perfect for confident men seeking a refined, long-lasting everyday fragrance.",
+      "Timeless, inspired by Dior Sauvage, smells fresh and powerful. It opens with citrus and pepper for a sharp burst, then soft lavender adds smoothness. The woody base makes it masculine and confident — perfect for daily wear or evening outings.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/Timeless.png",
     multi_images: [
@@ -47,7 +47,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Amber, Liquorice, Sandalwood",
     sillage: "Very Strong",
     description:
-      "Timeless Intense is a spicy, powerful scent with deep amber and warm spices. Ideal for evening wear and special occasions, it makes a commanding impression.",
+      "Timeless Intense, inspired by Dior Sauvage Elixir, is spicy, warm, and bold. The mix of cinnamon and cardamom creates a strong first impression, while lavender balances it with smoothness. Amber and sandalwood give it a deep, long-lasting finish for nights out.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/Timeless intense.png",
     multi_images: [
@@ -61,15 +61,15 @@ export const perfumeData: perfume_Data[] = [
   {
     id: 3,
     name: "Azure",
-    inspired_by: "Acqua di Gio",
+    inspired_by: "Memo Paris French Leather",
     size_ml: 20,
     type: "EDP",
-    top_notes: "Bergamot, Neroli",
-    middle_notes: "Marine Notes, Jasmine",
-    base_notes: "Cedarwood, Amber",
+    top_notes: "Lime, Pink Pepper",
+    middle_notes: "Rose, Clary Sage",
+    base_notes: "Suede, Vetiver, Musk",
     sillage: "Moderate",
     description:
-      "Azure brings oceanic freshness with citrus and aquatic notes a refreshing scent that captures the spirit of the Mediterranean. Light yet lingering.",
+      "Azure, inspired by Memo Paris French Leather, is fresh and elegant. It smells like lime and rose at first, clean and uplifting, with a soft leather note underneath. A balanced scent that feels classy and modern.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/azure.png",
     multi_images: [
@@ -90,7 +90,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Musk, Oakmoss, Vanilla",
     sillage: "Strong",
     description:
-      "Onyx exudes strength and ambition with a blend of pineapple, birch, and musk. A modern, versatile scent for leaders and visionaries.",
+      "Onyx, inspired by Creed Aventus, smells fruity and smoky at the same time. Pineapple gives it a fresh, juicy feel, while birch adds a smoky touch. The musky base makes it rich and long-lasting, great for formal or special occasions.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/ONXY.png",
     multi_images: [
@@ -110,7 +110,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Amber, Musk",
     sillage: "Moderate",
     description:
-      "Indulge in Caramel, a rich, gourmand fragrance with creamy vanilla and sweet sugar notes. A deliciously warm and comforting scent for her.",
+      "Caramel is sweet, cosy, and delicious. It smells like melted toffee and warm vanilla, with a touch of amber to keep it balanced. A perfect scent if you love dessert-like perfumes that feel comforting and addictive.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/caremal.png",
     multi_images: [
@@ -129,7 +129,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Raspberry, Musk, Sandalwood",
     sillage: "Soft",
     description:
-      "Nova is a fruity-floral explosion with vibrant berries and soft florals, perfect for the playful and radiant woman. Youthful, bright, and charming.",
+      "Nova, inspired by Escada Moon Sparkle, smells fruity, fun, and playful. Juicy strawberry and apple give it a candy-like sweetness, while light flowers and musk make it smooth. A youthful fragrance for everyday wear.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/NOVA.png",
     multi_images: [
@@ -142,7 +142,7 @@ export const perfumeData: perfume_Data[] = [
   {
     id: 7,
     name: "Scarlet",
-    inspired_by: "Hugo Boss Deep Red",
+    inspired_by: "YSL Y",
     size_ml: 20,
     type: "EDP",
     top_notes: "Blood Orange, Blackcurrant, Clementine",
@@ -150,7 +150,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Vanilla, Sandalwood, Musk",
     sillage: "Moderate",
     description:
-      "Scarlet blends blood orange and vanilla with spicy florals for a sensual and bold feminine fragrance. Designed for the fearless woman.",
+      "Scarlet, inspired by YSL Y, is bright and feminine. The citrusy opening feels fresh, followed by soft flowers. Vanilla and musk in the base give it warmth, making it both elegant and easy to wear.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/scarlet.png",
     multi_images: [
@@ -162,7 +162,7 @@ export const perfumeData: perfume_Data[] = [
   {
     id: 8,
     name: "Pulse",
-    inspired_by: "YSL Y",
+    inspired_by: "Paco Rabbane Black XS",
     size_ml: 20,
     type: "EDP",
     top_notes: "Apple, Ginger, Bergamot",
@@ -170,7 +170,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Amberwood, Tonka Bean, Cedar",
     sillage: "Strong",
     description:
-      "Pulse energises with fresh apple and ginger, layered over smooth tonka bean. A clean, modern scent for the driven and dynamic man.",
+      "Pulse, inspired by Paco Rabanne Black XS, smells energetic and modern. The apple and ginger opening is sharp and lively, while tonka bean and cedar give it a sweet-woody depth. A youthful fragrance full of character.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/pulse.png",
     multi_images: [
@@ -190,7 +190,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Ambergris, Musk, Driftwood",
     sillage: "Strong",
     description:
-      "Villain is fresh, aquatic, and daring. With notes of cinnamon, bergamot, and amber, its for the man who plays by his own rules.",
+      "Villain, inspired by Rasasi Hawas, is fresh and slightly sweet with a spicy twist. The apple and bergamot give it a clean start, cinnamon adds energy, and the musky-woody base makes it long-lasting. Great for casual wear or evenings.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/Villian.png",
     multi_images: [
@@ -211,7 +211,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Musk, Moss, Wood",
     sillage: "Moderate",
     description:
-      "Deception is a seductive floral-fruity fragrance with lush lychee, peony, and soft musk. For the elegant soul with a mysterious allure.",
+      "Deception, inspired by Ex Nihilo Fleur Narcotique, is soft, floral, and modern. Lychee and peach give it a fresh sweetness, while peony and jasmine add elegance. The musky-woody base makes it sophisticated but easy to wear every day.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/deception.png",
     multi_images: [
@@ -232,7 +232,7 @@ export const perfumeData: perfume_Data[] = [
     base_notes: "Amber, Musk",
     sillage: "Very Strong",
     description:
-      "Crimson Oud combines the richness of oud with blooming rose, creating a luxurious, oriental scent that leaves a lasting impression.",
+      "Crimson Oud, inspired by Ahmed Al Maghribi Oud & Roses, is rich and traditional. It starts with strong rose and saffron, then deep oud takes over. Amber and musk make it heavy and long-lasting — a bold scent for special occasions.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/crimson oud.png",
     multi_images: [
