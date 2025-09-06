@@ -7,12 +7,14 @@ export interface perfume_Data {
   top_notes: string;
   middle_notes: string;
   base_notes: string;
-  sillage: string;
+  intensity: string;
+  projection: "Very High" | "High" | "Moderate" | "Low";
   description: string;
   price_inr: number;
   image: string;
   multi_images?: string[];
   tags?: string[];
+  gender?: "Women" | "Men" | "Unisex";
 }
 
 export const perfumeData: perfume_Data[] = [
@@ -25,7 +27,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Bergamot, Pepper",
     middle_notes: "Lavender, Sichuan Pepper, Star Anise",
     base_notes: "Ambroxan, Cedarwood",
-    sillage: "Strong",
+    intensity: "Strong",
+    gender: "Men",
+    projection: "High",
     description:
       "Timeless, inspired by Dior Sauvage, smells fresh and powerful. It opens with citrus and pepper for a sharp burst, then soft lavender adds smoothness. The woody base makes it masculine and confident — perfect for daily wear or evening outings.",
     price_inr: 350,
@@ -45,7 +49,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Cinnamon, Nutmeg, Cardamom",
     middle_notes: "Lavender",
     base_notes: "Amber, Liquorice, Sandalwood",
-    sillage: "Very Strong",
+    intensity: "Very Strong",
+    projection:"Very High",
+    gender: "Men",
     description:
       "Timeless Intense, inspired by Dior Sauvage Elixir, is spicy, warm, and bold. The mix of cinnamon and cardamom creates a strong first impression, while lavender balances it with smoothness. Amber and sandalwood give it a deep, long-lasting finish for nights out.",
     price_inr: 350,
@@ -67,15 +73,17 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Lime, Pink Pepper",
     middle_notes: "Rose, Clary Sage",
     base_notes: "Suede, Vetiver, Musk",
-    sillage: "Moderate",
+    intensity: "Moderate",
+    gender: "Unisex",
+    projection:"Moderate",
     description:
       "Azure, inspired by Memo Paris French Leather, is fresh and elegant. It smells like lime and rose at first, clean and uplifting, with a soft leather note underneath. A balanced scent that feels classy and modern.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/azure.png",
     multi_images: [
       "/assets/all_images/Product-Images/azure.png",
-     "/assets/all_images/Azure 2.png",
-     "/assets/all_images/Azure.png"
+      "/assets/all_images/Azure 2.png",
+      "/assets/all_images/Azure.png",
     ],
     tags: ["popular"],
   },
@@ -88,7 +96,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Pineapple, Blackcurrant, Bergamot",
     middle_notes: "Birch, Patchouli, Rose",
     base_notes: "Musk, Oakmoss, Vanilla",
-    sillage: "Strong",
+    intensity: "Strong",
+    gender: "Men",
+    projection:"High",
     description:
       "Onyx, inspired by Creed Aventus, smells fruity and smoky at the same time. Pineapple gives it a fresh, juicy feel, while birch adds a smoky touch. The musky base makes it rich and long-lasting, great for formal or special occasions.",
     price_inr: 350,
@@ -108,14 +118,14 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Toffee, Brown Sugar",
     middle_notes: "Caramel, Vanilla",
     base_notes: "Amber, Musk",
-    sillage: "Moderate",
+    intensity: "Moderate",
+    gender: "Women",
+    projection:"High",
     description:
       "Caramel is sweet, cosy, and delicious. It smells like melted toffee and warm vanilla, with a touch of amber to keep it balanced. A perfect scent if you love dessert-like perfumes that feel comforting and addictive.",
     price_inr: 350,
     image: "/assets/all_images/Product-Images/caremal.png",
-    multi_images: [
-      "/assets/all_images/Product-Images/caremal.png",
-    ],
+    multi_images: ["/assets/all_images/Product-Images/caremal.png"],
     tags: ["limited_edition", "exclusive"],
   },
   {
@@ -127,7 +137,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Strawberry, Blackcurrant, Red Apple",
     middle_notes: "Sweet Pea, Jasmine, Freesia",
     base_notes: "Raspberry, Musk, Sandalwood",
-    sillage: "Soft",
+    intensity: "Soft",
+    gender: "Women",
+    projection:"Very High",
     description:
       "Nova, inspired by Escada Moon Sparkle, smells fruity, fun, and playful. Juicy strawberry and apple give it a candy-like sweetness, while light flowers and musk make it smooth. A youthful fragrance for everyday wear.",
     price_inr: 350,
@@ -148,7 +160,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Blood Orange, Blackcurrant, Clementine",
     middle_notes: "Ginger Flower, Tuberose, Freesia",
     base_notes: "Vanilla, Sandalwood, Musk",
-    sillage: "Moderate",
+    intensity: "Moderate",
+    gender: "Women",
+    projection:"Moderate",
     description:
       "Scarlet, inspired by YSL Y, is bright and feminine. The citrusy opening feels fresh, followed by soft flowers. Vanilla and musk in the base give it warmth, making it both elegant and easy to wear.",
     price_inr: 350,
@@ -168,7 +182,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Apple, Ginger, Bergamot",
     middle_notes: "Sage, Juniper Berries, Geranium",
     base_notes: "Amberwood, Tonka Bean, Cedar",
-    sillage: "Strong",
+    intensity: "Strong",
+    gender: "Unisex",
+    projection:"Moderate",
     description:
       "Pulse, inspired by Paco Rabanne Black XS, smells energetic and modern. The apple and ginger opening is sharp and lively, while tonka bean and cedar give it a sweet-woody depth. A youthful fragrance full of character.",
     price_inr: 350,
@@ -188,7 +204,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Cinnamon, Bergamot, Apple",
     middle_notes: "Orange Blossom, Cardamom",
     base_notes: "Ambergris, Musk, Driftwood",
-    sillage: "Strong",
+    intensity: "Strong",
+    gender: "Unisex",
+    projection:"High",
     description:
       "Villain, inspired by Rasasi Hawas, is fresh and slightly sweet with a spicy twist. The apple and bergamot give it a clean start, cinnamon adds energy, and the musky-woody base makes it long-lasting. Great for casual wear or evenings.",
     price_inr: 350,
@@ -209,7 +227,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Lychee, Bergamot, Peach",
     middle_notes: "Peony, Orange Blossom, Jasmine",
     base_notes: "Musk, Moss, Wood",
-    sillage: "Moderate",
+    intensity: "Moderate",
+    gender: "Men",
+    projection:"Very High",
     description:
       "Deception, inspired by Ex Nihilo Fleur Narcotique, is soft, floral, and modern. Lychee and peach give it a fresh sweetness, while peony and jasmine add elegance. The musky-woody base makes it sophisticated but easy to wear every day.",
     price_inr: 350,
@@ -230,7 +250,9 @@ export const perfumeData: perfume_Data[] = [
     top_notes: "Rose, Saffron",
     middle_notes: "Oud, Patchouli",
     base_notes: "Amber, Musk",
-    sillage: "Very Strong",
+    intensity: "Very Strong",
+    gender: "Unisex",
+    projection:"Moderate",
     description:
       "Crimson Oud, inspired by Ahmed Al Maghribi Oud & Roses, is rich and traditional. It starts with strong rose and saffron, then deep oud takes over. Amber and musk make it heavy and long-lasting — a bold scent for special occasions.",
     price_inr: 350,

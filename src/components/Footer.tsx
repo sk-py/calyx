@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {  Instagram, Youtube, Facebook } from "lucide-react";
+import { BsWhatsapp } from "react-icons/bs";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,7 +25,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: BsWhatsapp, href: "#", label: "WhatsApp" },
     { icon: Facebook, href: "#", label: "Facebook" },
   ];
 

@@ -17,6 +17,7 @@ type Perfume = {
   price_inr?: number;
   inspired_by?: string;
   isNew?: boolean;
+  gender: string;
   tags?: string[];
   sillage?: string;
   longevity?: string;
@@ -350,11 +351,12 @@ const SearchPage = () => {
                               className="w-full h-full object-cover absolute inset-0 opacity-0 transition-opacity duration-300 ease-in-out group-hover/image:opacity-100"
                             />
                           )}
-                          {isNew && (
-                            <span className="absolute left-2 top-2 group-hover:top-3 transition-all duration-300 rounded-full bg-black text-white text-xl px-6 py-0">
-                              New
+                          
+                          <span className={`absolute left-1 top-1 group-hover:top-1  rounded-none transition-all duration-300
+                           ${p.gender == "Men" ? "bg-black text-white" : p.gender == "Unisex" ? 'bg-gray-500 text-white' : 'bg-white text-black' }  text-base px-6 py-0`}>
+                              {p.gender}
                             </span>
-                          )}
+                          
                           {/* <motion.div
                             initial={{ y: -6, scale: 0.98 }}
                             className="pointer-events-none absolute left-[30%] top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300"
