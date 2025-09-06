@@ -256,9 +256,10 @@ export default function ScrollGiftSections() {
                   <h1 className="text-4xl font-[Doren] mb-4">
                     {section.heading}
                   </h1>
-                  <p className="text-sm max-w-sm leading-relaxed mb-8">
-                    {section.description}
-                  </p>
+                  <p
+                    dangerouslySetInnerHTML={{ __html: section.description }}
+                    className="text-sm max-w-sm leading-relaxed mb-8"
+                  ></p>
                   <Link
                     to="/product"
                     className="px-8 py-3 border border-white text-white text-sm uppercase tracking-wider w-fit"
