@@ -3903,16 +3903,13 @@ const ProductDetails = () => {
         {/* Product Description */}
         <div className="mt-24 border-t border-gray-200 pt-16">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-              <div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
+              <div className="col-span-2">
                 <h3 className="text-sm font-medium tracking-[0.2em] text-gray-900 mb-6 uppercase">
                   DESCRIPTION
                 </h3>
                 <p className="text-gray-700 leading-relaxed font-light">
-                  A sophisticated interpretation inspired by{" "}
-                  {product.inspired_by}. Crafted with the finest imported oils,
-                  this Eau de Parfum delivers an uncompromising olfactory
-                  experience that embodies luxury and refinement.
+                 {product.description}
                 </p>
               </div>
               <div>
@@ -3925,7 +3922,7 @@ const ProductDetails = () => {
                       TOP
                     </h4>
                     <p className="text-sm text-gray-600 font-light">
-                      Fresh & Luminous
+                      {product.top_notes}
                     </p>
                   </div>
                   <div>
@@ -3933,7 +3930,7 @@ const ProductDetails = () => {
                       HEART
                     </h4>
                     <p className="text-sm text-gray-600 font-light">
-                      Rich & Complex
+                      {product.middle_notes}
                     </p>
                   </div>
                   <div>
@@ -3941,7 +3938,7 @@ const ProductDetails = () => {
                       BASE
                     </h4>
                     <p className="text-sm text-gray-600 font-light">
-                      Deep & Lasting
+                      {product.base_notes}
                     </p>
                   </div>
                 </div>
@@ -3950,12 +3947,12 @@ const ProductDetails = () => {
                 <h3 className="text-sm font-medium tracking-[0.2em] text-gray-900 mb-6 uppercase">
                   CARE
                 </h3>
-                <div className="space-y-3 text-sm text-gray-600 font-light">
-                  <p>• Store in cool, dry place</p>
-                  <p>• Avoid direct sunlight</p>
-                  <p>• Apply to pulse points</p>
-                  <p>• Patch test recommended</p>
-                </div>
+                <ol className="space-y-3 list-disc text-sm text-gray-600 font-light">
+                  <li>Store in cool, dry place</li>
+                  <li>Avoid direct sunlight</li>
+                  <li>Apply to pulse points</li>
+                  <li>Patch test recommended</li>
+                </ol>
               </div>
             </div>
           </div>
@@ -4050,6 +4047,7 @@ const ProductDetails = () => {
               ))}
             </div>
           </div>
+            <p className="text-center mt-10 text-slate-700 cursor-pointer">AND MORE...</p>
         </div>
 
         {/* Related Products */}
