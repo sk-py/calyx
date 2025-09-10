@@ -34,7 +34,6 @@ import { FaClock, FaCertificate, FaOilCan, FaFlag } from "react-icons/fa";
 import { BsDropletFill } from "react-icons/bs";
 import { GrCompare } from "react-icons/gr";
 
-
 const ProductDetails = () => {
   const { productid } = useParams();
   const product = perfumeData.find((item) => item.id === Number(productid));
@@ -389,27 +388,84 @@ const ProductDetails = () => {
                     {product.intensity}
                   </span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-1 bg-black"></div>
-                  <div className="w-3 h-1 bg-gray-600"></div>
-                  <div className="w-3 h-1 bg-gray-300"></div>
-                  <div className="w-3 h-1 bg-gray-200"></div>
+                <div className="flex items-center gap-[2px]">
+                  {(() => {
+                    const intensityMap = {
+                      Soft: 1,
+                      Moderate: 2,
+                      Strong: 3,
+                      "Very Strong": 4,
+                    };
+                    const intensityLevel = intensityMap[product.intensity] || 1;
+                    const boxes = [];
+                    for (let i = 0; i < 4; i++) {
+                      let bgClass;
+                      if (i < intensityLevel) {
+                        bgClass = "bg-black"; // Filled box
+                      } else {
+                        // Gradient for unfilled boxes
+                        bgClass =
+                          i === intensityLevel
+                            ? "bg-gray-600"
+                            : i === intensityLevel + 1
+                            ? "bg-gray-300"
+                            : "bg-gray-200";
+                      }
+                      boxes.push(
+                        <div
+                          key={`intensity-${i}`}
+                          className={`w-3 h-1 ${bgClass}`}
+                        ></div>
+                      );
+                    }
+                    return boxes;
+                  })()}
                 </div>
               </div>
+
+              {/* Projection */}
               <div className="border-b border-gray-200 pb-6">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-sm uppercase font-medium tracking-wide text-gray-900">
-                    Projection
+                    PROJECTION
                   </span>
                   <span className="text-sm uppercase font-light text-gray-600">
                     {product.projection}
                   </span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <div className="w-3 h-1 bg-black"></div>
-                  <div className="w-3 h-1 bg-gray-600"></div>
-                  <div className="w-3 h-1 bg-gray-300"></div>
-                  <div className="w-3 h-1 bg-gray-200"></div>
+                <div className="flex items-center gap-[2px]">
+                  {(() => {
+                    const projectionMap = {
+                      Low: 1,
+                      Moderate: 2,
+                      High: 3,
+                      "Very High": 4,
+                    };
+                    const projectionLevel =
+                      projectionMap[product.projection] || 1;
+                    const boxes = [];
+                    for (let i = 0; i < 4; i++) {
+                      let bgClass;
+                      if (i < projectionLevel) {
+                        bgClass = "bg-black"; // Filled box
+                      } else {
+                        // Gradient for unfilled boxes
+                        bgClass =
+                          i === projectionLevel
+                            ? "bg-gray-600"
+                            : i === projectionLevel + 1
+                            ? "bg-gray-300"
+                            : "bg-gray-200";
+                      }
+                      boxes.push(
+                        <div
+                          key={`projection-${i}`}
+                          className={`w-3 h-1 ${bgClass}`}
+                        ></div>
+                      );
+                    }
+                    return boxes;
+                  })()}
                 </div>
               </div>
 
@@ -575,7 +631,7 @@ const ProductDetails = () => {
                   DESCRIPTION
                 </h3>
                 <p className="text-gray-700 leading-relaxed font-light">
-                 {product.description}
+                  {product.description}
                 </p>
               </div>
               <div>
@@ -713,7 +769,9 @@ const ProductDetails = () => {
               ))}
             </div>
           </div>
-            <p className="text-center mt-10 text-slate-700 cursor-pointer">AND MORE...</p>
+          <p className="text-center mt-10 text-slate-700 cursor-pointer">
+            AND MORE...
+          </p>
         </div>
 
         {/* Related Products */}
